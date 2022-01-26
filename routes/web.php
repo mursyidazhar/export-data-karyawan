@@ -20,5 +20,7 @@ Route::post('/store', [App\Http\Controllers\HomeController::class, 'store'])->na
 Route::get('/edit/{id}', [App\Http\Controllers\HomeController::class, 'edit'])->name('edit');
 Route::put('/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('update');
 Route::delete('/delete/{id}', [App\Http\Controllers\HomeController::class, 'destroy'])->name('delete');
+Route::get('/show/{id}', [App\Http\Controllers\HomeController::class, 'show'])->name('show');
+Route::get('/export/{id}', [App\Http\Controllers\HomeController::class, 'export'])->name('export');
 
 Auth::routes();

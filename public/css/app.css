@@ -551,9 +551,8 @@ pre code {
 .container-md,
 .container-sm {
   width: 100%;
-  padding-top: 30px;
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 7.5px;
+  padding-left: 7.5px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -2107,12 +2106,6 @@ textarea.form-control {
 
 .form-group {
   margin-bottom: 1rem;
-}
-
-.form-group.has-error span.has-error {
-  color: #FF4444;
-  font-size: 13px;
-  display: block !important;
 }
 
 .form-text {
@@ -11884,16 +11877,7 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
   background-color: transparent;
   border-left-width: 0;
 }
-.form-control.underlined {
-  padding-left: 0;
-  padding-right: 0;
-  border-radius: 0;
-  border: none;
-  border-radius: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  border-bottom: 1px solid #d7dde4;
-}
+
 .form-control-navbar {
   border-right-width: 0;
 }
@@ -22077,9 +22061,6 @@ body.text-sm .input-group-text {
 .card-success:not(.card-outline) > .card-header .btn-tool {
   color: rgba(255, 255, 255, 0.8);
 }
-.card.card-success>.card-header {
-  background-color: #4bcf99;
-}
 .bg-success > .card-header .btn-tool:hover,
 .bg-gradient-success > .card-header .btn-tool:hover,
 .card-success:not(.card-outline) > .card-header .btn-tool:hover {
@@ -23608,24 +23589,6 @@ body.text-sm .input-group-text {
 .card {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);
   margin-bottom: 1rem;
-}
-.title {
-  font-size: 1.45rem;
-  font-weight: 600;
-  margin-bottom: 0;
-}
-.card .title {
-  font-size: 1.1rem;
-  color: #4f5f6f;
-}
-.card .title-block,
-.card .card-title-block {
-    padding-bottom: 0;
-    margin-bottom: 20px;
-    border: none;
-}
-.card-block {
-  padding: 15px;
 }
 .card.bg-dark .card-header {
   border-color: #383f45;

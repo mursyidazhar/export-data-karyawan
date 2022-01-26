@@ -2,8 +2,9 @@
 
 @section('content')
 
-    <div class="container-fluid">        
-        <a href="{{ route('create') }}" class="btn btn-primary mb-2">Create Karyawan</a>
+    <div class="container-fluid pt-3">        
+        <h2>Data Karyawan</h2>
+        <a href="{{ route('create') }}" class="btn btn-primary mb-2 mt-3">Create Karyawan</a>
         @if(Session::has('success_message'))
             <div class="card card-success" style='margin-bottom: 20px'>
                 <div class="card-header">
@@ -54,7 +55,7 @@
                                     @csrf
                                     <button class="btn btn-danger ms-2">Delete</button>
                                 </form>
-                                <a href="{{ route('edit', $employee->id) }}" class="btn btn-primary ml-2">Export</a>
+                                <a href="{{ route('show', $employee->id) }}" class="btn btn-primary ml-2">Export</a>
                             </div>
                         </td>
                     </tr>

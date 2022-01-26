@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use PhpOffice\PhpWord\TemplateProcessor;
 
 class HomeController extends Controller
 {
@@ -153,5 +154,45 @@ class HomeController extends Controller
         $employee->delete();
 
         return back()->with('success_message', 'Data Karyawan berhasil dihapus!');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $employee = Employee::where('id', $id)->first();
+
+        return view('show', [
+            'employee' => $employee
+        ]);
+    }
+
+    /**
+     * Export data karyawan .docx format
+     *
+     * @param   int  $id  
+     *
+     * @return  \Illuminate\Http\Response
+     */
+    public function export($id)
+    {
+        $employee = Employee::where('id', $id)->first();
+
+        $templateProcessor = new TemplateProcessor('word-template/user.docx');
+        $templateProcessor->setValue('name', $employee->name);
+        $templateProcessor->setValue('gender', $employee->gender);
+        $templateProcessor->setValue('phone_number', $employee->phone_number);
+        $templateProcessor->setValue('email', $employee->email);
+        $templateProcessor->setValue('formatted_salary', $employee->formatted_salary);        
+        $templateProcessor->setImageValue('photo',array('src' => './images/' . $employee->photo,'swh'=>'250'));
+        
+
+        $fileName = str_replace(' ', '_', $employee->name);
+        $templateProcessor->saveAs($fileName.'.docx');
+        return response()->download($fileName.'.docx')->deleteFileAfterSend(true);
     }
 }
